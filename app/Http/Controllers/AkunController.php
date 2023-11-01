@@ -11,21 +11,21 @@ class AkunController extends Controller
     public function index()
     {
         $post = User::latest()->paginate(5);
-
         return view('admin.akun.index', compact('post'));
     }
 
     public function create()
     {
-        return view('admin.akun.create');
+        $role = ['admin', 'petugas', 'masyarakat'];
+        return view('admin.akun.create', compact('role'));
     }
 
     public function store(Request $request): RedirectResponse
     {
         //validate form
         $this->validate($request, [
-            'name'     => 'required|min:50',
-            'email'    => 'required|min:50',
+            'name'     => 'required|min:5',
+            'email'    => 'required|min:5',
             'password' => 'required|min:5',
         ]);
 
@@ -34,7 +34,7 @@ class AkunController extends Controller
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => $request->password,
-            'role'     => $request->role,
+            'role'     => $request->role
         ]);
 
         //redirect to index

@@ -19,19 +19,17 @@
                     <div class="card">
                         <div class="card-header">
                             <a href="{{ route('akun.create') }}" class="btn btn-md btn-success">Tambah Akun</a>
-                            <div class="card-tools">
-                            </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 300px;">
-                            <table class="table table-head-fixed text-nowrap">
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Password</th>
                                         <th>Role</th>
-                                        <th>Edit Akun</th>
+                                        <th class="text-center">Edit Akun</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,7 +39,7 @@
                                             <td>{{ $akun->email }}</td>
                                             <td style="color: red">Terenkripsi</td>
                                             <td>{{ $akun->role }}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <form onsubmit="return confirm('Apakah Anda Yakin?');" action=""
                                                     method="POST">
                                                     <a href="" class="btn btn-sm btn-outline-primary">Edit</a>
@@ -59,14 +57,13 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                            {{ $post->links() }}
                         </div>
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-                </div>
             </div>
-            <!-- /.row -->
+        </div>
+        <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
 @endsection

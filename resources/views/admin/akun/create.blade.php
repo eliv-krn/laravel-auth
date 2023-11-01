@@ -28,25 +28,44 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputNama">Nama</label>
-                                    <input type="text" name="name" class="form-control" id="exampleInputEmail1"
-                                        placeholder="Nama lengkap">
+                                    <input type="text" name="name"
+                                        class="form-control @error('nama') is-invalid @enderror" id="exampleInputEmail1"
+                                        placeholder="Nama lengkap" value="{{ old('nisn') }}">
+                                    @error('name')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                        placeholder="Alamat email">
+                                    <label for="exampleInputNama">E-mail</label>
+                                    <input type="text" name="email"
+                                        class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1"
+                                        placeholder="E-mail" value="{{ old('email') }}">
+                                    @error('email')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" name="password" class="form-control" id="exampleInputPassword1"
-                                        placeholder="Password">
+                                    <label for="exampleInputNama">Password</label>
+                                    <input type="password" name="password"
+                                        class="form-control @error('password') is-invalid @enderror" id="exampleInputEmail1"
+                                        placeholder="Password" value="{{ old('password') }}">
+                                    @error('password')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Role</label>
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="administrator">Administrator</option>
-                                        <option value="petugas">Petugas</option>
-                                        <option value="masyarakat">Masyarakat</option>
+                                    <select name="role" class="form-control @error('role') is-invalid @enderror"
+                                        style="width: 100%;">
+                                        @foreach ($role as $r)
+                                            <option value="{{ $r }}" selected="">{{ $r }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group mb-0">
