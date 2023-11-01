@@ -32,6 +32,11 @@
     <link rel="stylesheet" href="{{ asset('template/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('template/plugins/summernote/summernote-bs4.min.css') }}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 
 </head>
 
@@ -119,45 +124,45 @@
                                 </a>
                             </li>
                         @endif
-                        @if (Auth::user()->role == 'admin' || Auth::user()->role == 'petugas' )
-                        <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-check"></i>
-                                <p>
-                                    Verifikasi Laporan
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-pen"></i>
-                                <p>
-                                    Beri Tanggapan
-                                </p>
-                            </a>
-                        </li>
+                        @if (Auth::user()->role == 'admin' || Auth::user()->role == 'petugas')
+                            <li class="nav-item">
+                                <a href="../widgets.html" class="nav-link">
+                                    <i class="nav-icon fas fa-check"></i>
+                                    <p>
+                                        Verifikasi Laporan
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../widgets.html" class="nav-link">
+                                    <i class="nav-icon fas fa-pen"></i>
+                                    <p>
+                                        Beri Tanggapan
+                                    </p>
+                                </a>
+                            </li>
                         @endif
                         @if (Auth::user()->role == 'masyarakat')
-                        <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-pen"></i>
-                                <p>
-                                    Tulis Pengaduan
-                                </p>
-                            </a>
-                        </li>    
+                            <li class="nav-item">
+                                <a href="../widgets.html" class="nav-link">
+                                    <i class="nav-icon fas fa-pen"></i>
+                                    <p>
+                                        Tulis Pengaduan
+                                    </p>
+                                </a>
+                            </li>
                         @endif
                         @if (Auth::user()->role == 'admin')
-                        <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-print"></i>
-                                <p>
-                                    Generate Laporan
-                                </p>
-                            </a>
-                        </li>    
+                            <li class="nav-item">
+                                <a href="../widgets.html" class="nav-link">
+                                    <i class="nav-icon fas fa-print"></i>
+                                    <p>
+                                        Generate Laporan
+                                    </p>
+                                </a>
+                            </li>
                         @endif
-                        
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -219,7 +224,35 @@
     <script src="{{ asset('template/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('template/dist/js/pages/dashboard.js') }}"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{ asset('template/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('template/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "paging": true,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+    </script>
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="{{ asset('template/dist/js/demo.js') }}"></script> --}}
 </body>
+
 </html>

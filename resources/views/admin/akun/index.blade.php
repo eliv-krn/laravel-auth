@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'dashboard')
+@section('title', 'Akun_Sapmas')
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
