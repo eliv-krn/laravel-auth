@@ -18,18 +18,18 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{ route('akun.create') }}" class="btn btn-md btn-success">Tambah Akun</a>
+                            <a href="{{ route('akun.create') }}" class="btn btn-md btn-success"> + Tambah Akun</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="tbl-akun" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Password</th>
                                         <th>Role</th>
-                                        <th class="text-center">Edit Akun</th>
+                                        <th>Edit Akun</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,9 +61,12 @@
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
+                </div>
+                <!-- /.col -->
             </div>
+            <!-- /.row -->
         </div>
-        <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        <!-- /.container-fluid -->
     </section>
+    <!-- /.content -->
 @endsection
